@@ -1,0 +1,240 @@
+{
+  "id": "pipes",
+  "title": "Redirecionamentos e pipes",
+  "description": "Conecte comandos e dê um destino à saída.",
+  "symbol": "| >",
+  "questions": [
+    {
+      "id": "pipes-1",
+      "prompt": "Você quer salvar a listagem em lista.txt, substituindo o conteúdo anterior. No Bash, com a configuração padrão, qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "ls -la >> lista.txt"
+        },
+        {
+          "id": "b",
+          "text": "ls -la > lista.txt"
+        },
+        {
+          "id": "c",
+          "text": "ls -la < lista.txt"
+        },
+        {
+          "id": "d",
+          "text": "ls -la 2> lista.txt"
+        }
+      ],
+      "correct_id": "b",
+      "explanation": "> redireciona a saída padrão e sobrescreve o arquivo existente. Se não existir, o arquivo é criado.",
+      "source": {
+        "file": "aula 4.pdf",
+        "page": 1
+      }
+    },
+    {
+      "id": "pipes-2",
+      "prompt": "notas.txt já contém anotações. Como acrescentar a palavra Linux ao final sem apagar o conteúdo?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "echo Linux >> notas.txt"
+        },
+        {
+          "id": "b",
+          "text": "echo Linux > notas.txt"
+        },
+        {
+          "id": "c",
+          "text": "cat < notas.txt"
+        },
+        {
+          "id": "d",
+          "text": "echo Linux 2> notas.txt"
+        }
+      ],
+      "correct_id": "a",
+      "explanation": ">> acrescenta a saída padrão ao final. > substituiria o conteúdo.",
+      "source": {
+        "file": "aula 4.pdf",
+        "page": 1
+      }
+    },
+    {
+      "id": "pipes-3",
+      "prompt": "nomes.txt contém um nome por linha. Qual comando lê esse arquivo pela entrada padrão e exibe os nomes ordenados?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "sort > nomes.txt"
+        },
+        {
+          "id": "b",
+          "text": "echo nomes.txt"
+        },
+        {
+          "id": "c",
+          "text": "head nomes.txt"
+        },
+        {
+          "id": "d",
+          "text": "sort < nomes.txt"
+        }
+      ],
+      "correct_id": "d",
+      "explanation": "< conecta um arquivo à entrada padrão. sort ordena as linhas recebidas.",
+      "source": {
+        "file": "aula 4.pdf",
+        "page": 3
+      }
+    },
+    {
+      "id": "pipes-4",
+      "prompt": "O arquivo ausente.txt não existe. Como salvar somente a mensagem de erro em erro.log, substituindo um log anterior?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "cat ausente.txt > erro.log"
+        },
+        {
+          "id": "b",
+          "text": "cat ausente.txt < erro.log"
+        },
+        {
+          "id": "c",
+          "text": "cat ausente.txt 2> erro.log"
+        },
+        {
+          "id": "d",
+          "text": "cat ausente.txt | head"
+        }
+      ],
+      "correct_id": "c",
+      "explanation": "2> redireciona o descritor 2, a saída de erro. > sozinho redireciona a saída padrão, descritor 1.",
+      "source": {
+        "file": "aula 4.pdf",
+        "page": 4
+      }
+    },
+    {
+      "id": "pipes-5",
+      "prompt": "Você quer registrar um novo erro sem apagar os erros já salvos em erro.log. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "cat ausente.txt 2> erro.log"
+        },
+        {
+          "id": "b",
+          "text": "cat ausente.txt 2>> erro.log"
+        },
+        {
+          "id": "c",
+          "text": "cat ausente.txt >> erro.log"
+        },
+        {
+          "id": "d",
+          "text": "cat ausente.txt < erro.log"
+        }
+      ],
+      "correct_id": "b",
+      "explanation": "2>> acrescenta a saída de erro ao arquivo. >> sem o 2 acrescenta apenas a saída padrão.",
+      "source": {
+        "file": "aula 4.pdf",
+        "page": 4
+      }
+    },
+    {
+      "id": "pipes-6",
+      "prompt": "No Bash, o que o comando abaixo salva em resultado.log?",
+      "command": "ls /tmp /caminho-inexistente &> resultado.log",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "A saída padrão e as mensagens de erro"
+        },
+        {
+          "id": "b",
+          "text": "Somente os nomes encontrados em /tmp"
+        },
+        {
+          "id": "c",
+          "text": "Somente as mensagens de erro"
+        },
+        {
+          "id": "d",
+          "text": "Nada: o arquivo vira entrada do ls"
+        }
+      ],
+      "correct_id": "a",
+      "explanation": "No Bash, &> arquivo reúne stdout e stderr. Outra forma é > arquivo 2>&1; a ordem dos redirecionamentos importa.",
+      "source": {
+        "file": "aula 4.pdf",
+        "page": 9
+      }
+    },
+    {
+      "id": "pipes-7",
+      "prompt": "texto.txt existe. Qual comando envia seu conteúdo por um pipe para contar palavras?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "cat texto.txt | wc -l"
+        },
+        {
+          "id": "b",
+          "text": "cat texto.txt | head -5"
+        },
+        {
+          "id": "c",
+          "text": "cat texto.txt > contagem.txt"
+        },
+        {
+          "id": "d",
+          "text": "cat texto.txt | wc -w"
+        }
+      ],
+      "correct_id": "d",
+      "explanation": "O pipe conecta a saída de cat à entrada de wc. -w conta palavras; -l conta linhas. head -5 mostraria as primeiras cinco linhas.",
+      "source": {
+        "file": "aula 4.pdf",
+        "page": 7
+      }
+    },
+    {
+      "id": "pipes-8",
+      "prompt": "A pasta projeto ainda não existe. O que && faz nesta sequência?",
+      "command": "mkdir projeto && cd projeto",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "Executa cd somente se mkdir falhar"
+        },
+        {
+          "id": "b",
+          "text": "Executa os dois comandos sempre ao mesmo tempo"
+        },
+        {
+          "id": "c",
+          "text": "Executa cd somente se mkdir terminar com sucesso"
+        },
+        {
+          "id": "d",
+          "text": "Salva a saída de mkdir em um arquivo"
+        }
+      ],
+      "correct_id": "c",
+      "explanation": "&& condiciona a execução do comando seguinte ao sucesso do anterior (código de saída zero).",
+      "source": {
+        "file": "aula 4.pdf",
+        "page": 9
+      }
+    }
+  ]
+}

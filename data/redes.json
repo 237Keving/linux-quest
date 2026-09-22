@@ -1,0 +1,240 @@
+{
+  "id": "redes",
+  "title": "Redes na prática",
+  "description": "Explore interfaces, bridges e namespaces.",
+  "symbol": "<->",
+  "questions": [
+    {
+      "id": "redes-1",
+      "prompt": "Com privilégios de administração, qual comando cria uma bridge chamada br0?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "ip netns add br0"
+        },
+        {
+          "id": "b",
+          "text": "ip link add name br0 type bridge"
+        },
+        {
+          "id": "c",
+          "text": "ip link set dev br0 up"
+        },
+        {
+          "id": "d",
+          "text": "ping br0"
+        }
+      ],
+      "correct_id": "b",
+      "explanation": "ip link add cria uma interface; type bridge define uma ponte virtual de camada 2.",
+      "source": {
+        "file": "Kevin Rhoden - Projeto.pdf",
+        "page": 2
+      }
+    },
+    {
+      "id": "redes-2",
+      "prompt": "A interface br0 já existe. Qual comando atribui a ela o endereço 192.168.50.1/24?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "ip addr add 192.168.50.1/24 dev br0"
+        },
+        {
+          "id": "b",
+          "text": "ip netns add br0"
+        },
+        {
+          "id": "c",
+          "text": "ip link set dev br0 up"
+        },
+        {
+          "id": "d",
+          "text": "ip route add default via 192.168.50.1"
+        }
+      ],
+      "correct_id": "a",
+      "explanation": "ip addr add associa um endereço e seu prefixo de rede a uma interface existente.",
+      "source": {
+        "file": "Kevin Rhoden - Projeto.pdf",
+        "page": 2
+      }
+    },
+    {
+      "id": "redes-3",
+      "prompt": "A bridge br0 já foi criada. Qual comando a ativa administrativamente?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "ip link add name br0 type bridge"
+        },
+        {
+          "id": "b",
+          "text": "ip netns add br0"
+        },
+        {
+          "id": "c",
+          "text": "ip addr show br0"
+        },
+        {
+          "id": "d",
+          "text": "ip link set dev br0 up"
+        }
+      ],
+      "correct_id": "d",
+      "explanation": "ip link set dev br0 up muda o estado administrativo da interface para ativo.",
+      "source": {
+        "file": "Kevin Rhoden - Projeto.pdf",
+        "page": 3
+      }
+    },
+    {
+      "id": "redes-4",
+      "prompt": "Você quer criar um namespace de rede chamado pc1. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "ip link set dev pc1 up"
+        },
+        {
+          "id": "b",
+          "text": "ip addr add pc1"
+        },
+        {
+          "id": "c",
+          "text": "ip netns add pc1"
+        },
+        {
+          "id": "d",
+          "text": "ping pc1"
+        }
+      ],
+      "correct_id": "c",
+      "explanation": "ip netns add cria um namespace de rede, com interfaces e rotas próprias.",
+      "source": {
+        "file": "Kevin Rhoden - Projeto.pdf",
+        "page": 4
+      }
+    },
+    {
+      "id": "redes-5",
+      "prompt": "O namespace pc1 já existe. Qual é a finalidade do prefixo abaixo?",
+      "command": "ip netns exec pc1",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "Excluir o namespace pc1"
+        },
+        {
+          "id": "b",
+          "text": "Executar o comando seguinte dentro do namespace pc1"
+        },
+        {
+          "id": "c",
+          "text": "Renomear o computador para pc1"
+        },
+        {
+          "id": "d",
+          "text": "Copiar os arquivos de pc1"
+        }
+      ],
+      "correct_id": "b",
+      "explanation": "ip netns exec pc1 executa o programa que vem a seguir no contexto de rede do namespace pc1.",
+      "source": {
+        "file": "Kevin Rhoden - Projeto.pdf",
+        "page": 3
+      }
+    },
+    {
+      "id": "redes-6",
+      "prompt": "No namespace pc1, a interface está configurada e o gateway 192.168.50.1 é alcançável. O que faz o comando abaixo?",
+      "command": "ip route add default via 192.168.50.1",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "Configura a rota padrão via esse gateway"
+        },
+        {
+          "id": "b",
+          "text": "Cria uma bridge com esse endereço"
+        },
+        {
+          "id": "c",
+          "text": "Cria o namespace pc1"
+        },
+        {
+          "id": "d",
+          "text": "Testa a resposta do gateway"
+        }
+      ],
+      "correct_id": "a",
+      "explanation": "A rota padrão é usada quando não existe uma rota mais específica para o destino.",
+      "source": {
+        "file": "Kevin Rhoden - Projeto.pdf",
+        "page": 3
+      }
+    },
+    {
+      "id": "redes-7",
+      "prompt": "Que recurso de rede o comando abaixo cria?",
+      "command": "ip link add veth-pc2 type veth peer name veth-br2",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "Dois usuários do sistema"
+        },
+        {
+          "id": "b",
+          "text": "Uma rota padrão para a internet"
+        },
+        {
+          "id": "c",
+          "text": "Uma bridge chamada pc2"
+        },
+        {
+          "id": "d",
+          "text": "Um par de interfaces virtuais conectadas entre si"
+        }
+      ],
+      "correct_id": "d",
+      "explanation": "Um par veth funciona como duas pontas de uma conexão virtual, podendo interligar namespaces e bridges.",
+      "source": {
+        "file": "Kevin Rhoden - Projeto.pdf",
+        "page": 3
+      }
+    },
+    {
+      "id": "redes-8",
+      "prompt": "As interfaces e rotas já foram configuradas. Qual comando envia solicitações ICMP para testar a comunicação com 192.168.50.20?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "ip netns add pc2"
+        },
+        {
+          "id": "b",
+          "text": "ip link set dev br0 up"
+        },
+        {
+          "id": "c",
+          "text": "ping 192.168.50.20"
+        },
+        {
+          "id": "d",
+          "text": "ip addr add 192.168.50.20/24 dev br0"
+        }
+      ],
+      "correct_id": "c",
+      "explanation": "ping envia solicitações ICMP Echo e apresenta as respostas recebidas. Ausência de resposta também pode ocorrer por filtragem.",
+      "source": {
+        "file": "Kevin Rhoden - Projeto.pdf",
+        "page": 4
+      }
+    }
+  ]
+}

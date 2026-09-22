@@ -1,0 +1,240 @@
+{
+  "id": "usuarios",
+  "title": "Usuários e grupos",
+  "description": "Gerencie contas, grupos e senhas no Linux.",
+  "symbol": "@",
+  "questions": [
+    {
+      "id": "usuarios-1",
+      "prompt": "Como administrador, você precisa criar o grupo ti23, que ainda não existe. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "delgroup ti23"
+        },
+        {
+          "id": "b",
+          "text": "groupadd ti23"
+        },
+        {
+          "id": "c",
+          "text": "grep ti23 /etc/group"
+        },
+        {
+          "id": "d",
+          "text": "passwd ti23"
+        }
+      ],
+      "correct_id": "b",
+      "explanation": "groupadd cria grupos. grep pode consultar o registro e delgroup remove grupos no Debian.",
+      "source": {
+        "file": "Gerenciamento de Usuários.pptx.pdf",
+        "page": 3
+      }
+    },
+    {
+      "id": "usuarios-2",
+      "prompt": "No Debian, qual comando oferece o fluxo interativo de criação de usuário, solicitando senha e dados?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "adduser ana"
+        },
+        {
+          "id": "b",
+          "text": "useradd ana"
+        },
+        {
+          "id": "c",
+          "text": "usermod ana"
+        },
+        {
+          "id": "d",
+          "text": "users"
+        }
+      ],
+      "correct_id": "a",
+      "explanation": "adduser oferece o fluxo assistido no Debian. useradd é uma ferramenta de nível mais baixo e seus padrões dependem da configuração.",
+      "source": {
+        "file": "Gerenciamento de Usuários.pptx.pdf",
+        "page": 5
+      }
+    },
+    {
+      "id": "usuarios-3",
+      "prompt": "Como administrador, você deseja alterar a senha da conta ana, que já existe. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "groupadd ana"
+        },
+        {
+          "id": "b",
+          "text": "chage -l ana"
+        },
+        {
+          "id": "c",
+          "text": "lastlog"
+        },
+        {
+          "id": "d",
+          "text": "passwd ana"
+        }
+      ],
+      "correct_id": "d",
+      "explanation": "passwd ana permite definir uma nova senha para ana. Sem o nome, passwd altera a senha do próprio usuário.",
+      "source": {
+        "file": "Gerenciamento de Usuários.pptx.pdf",
+        "page": 9
+      }
+    },
+    {
+      "id": "usuarios-4",
+      "prompt": "A conta ana deve trocar a senha no próximo login. Como administrador, qual comando aplica essa exigência?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "passwd -d ana"
+        },
+        {
+          "id": "b",
+          "text": "userdel -r ana"
+        },
+        {
+          "id": "c",
+          "text": "passwd -e ana"
+        },
+        {
+          "id": "d",
+          "text": "users"
+        }
+      ],
+      "correct_id": "c",
+      "explanation": "passwd -e expira imediatamente a senha, exigindo sua troca no próximo login. -d remove a senha e não atende ao objetivo.",
+      "source": {
+        "file": "Gerenciamento de Usuários.pptx.pdf",
+        "page": 10
+      }
+    },
+    {
+      "id": "usuarios-5",
+      "prompt": "A usuária ana e o grupo ti23 já existem. Como adicionar ana como membro suplementar de ti23?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "gpasswd -d ana ti23"
+        },
+        {
+          "id": "b",
+          "text": "gpasswd -a ana ti23"
+        },
+        {
+          "id": "c",
+          "text": "groupadd ana"
+        },
+        {
+          "id": "d",
+          "text": "delgroup ti23"
+        }
+      ],
+      "correct_id": "b",
+      "explanation": "gpasswd -a adiciona um usuário ao grupo. gpasswd -d remove essa associação.",
+      "source": {
+        "file": "Gerenciamento de Usuários.pptx.pdf",
+        "page": 4
+      }
+    },
+    {
+      "id": "usuarios-6",
+      "prompt": "Você quer consultar a política e as datas de expiração da senha de ana, sem modificá-las. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "chage -l ana"
+        },
+        {
+          "id": "b",
+          "text": "passwd -e ana"
+        },
+        {
+          "id": "c",
+          "text": "usermod -l nova ana"
+        },
+        {
+          "id": "d",
+          "text": "userdel -r ana"
+        }
+      ],
+      "correct_id": "a",
+      "explanation": "chage -l lista informações de envelhecimento da senha. usermod modifica uma conta existente; -l altera o nome de login.",
+      "source": {
+        "file": "Gerenciamento de Usuários.pptx.pdf",
+        "page": 11
+      }
+    },
+    {
+      "id": "usuarios-7",
+      "prompt": "Você quer consultar os nomes de usuários atualmente conectados, a partir dos registros de sessão. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "last"
+        },
+        {
+          "id": "b",
+          "text": "lastlog"
+        },
+        {
+          "id": "c",
+          "text": "groupadd"
+        },
+        {
+          "id": "d",
+          "text": "users"
+        }
+      ],
+      "correct_id": "d",
+      "explanation": "users mostra usuários conectados. last consulta o histórico de sessões e lastlog mostra o último login registrado por usuário.",
+      "source": {
+        "file": "Gerenciamento de Usuários.pptx.pdf",
+        "page": 12
+      }
+    },
+    {
+      "id": "usuarios-8",
+      "prompt": "Como administrador, você quer excluir a conta ana, seu diretório pessoal e sua caixa de correio. Ana não está conectada. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "userdel ana"
+        },
+        {
+          "id": "b",
+          "text": "passwd -e ana"
+        },
+        {
+          "id": "c",
+          "text": "userdel -r ana"
+        },
+        {
+          "id": "d",
+          "text": "gpasswd -d ana ti23"
+        }
+      ],
+      "correct_id": "c",
+      "explanation": "userdel -r remove a conta, seu diretório pessoal e a caixa de correio. Arquivos do usuário em outros locais podem permanecer.",
+      "source": {
+        "file": "Gerenciamento de Usuários.pptx.pdf",
+        "page": 13
+      }
+    }
+  ]
+}

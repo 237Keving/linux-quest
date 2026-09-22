@@ -1,0 +1,240 @@
+{
+  "id": "arquivos",
+  "title": "Navegação e arquivos",
+  "description": "Encontre seu caminho. Crie, mova e organize arquivos.",
+  "symbol": "~/",
+  "questions": [
+    {
+      "id": "arquivos-1",
+      "prompt": "Você abriu o terminal e quer descobrir o caminho completo do diretório atual. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "ls"
+        },
+        {
+          "id": "b",
+          "text": "pwd"
+        },
+        {
+          "id": "c",
+          "text": "date"
+        },
+        {
+          "id": "d",
+          "text": "uname -a"
+        }
+      ],
+      "correct_id": "b",
+      "explanation": "pwd mostra o diretório de trabalho atual. uname -a mostra informações do sistema; date mostra data e hora.",
+      "source": {
+        "file": "Kevin Rhoden - Exercícios.pdf",
+        "page": 1
+      }
+    },
+    {
+      "id": "arquivos-2",
+      "prompt": "No diretório atual existe o arquivo oculto .config. Qual comando lista também os ocultos, com detalhes?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "ls -la"
+        },
+        {
+          "id": "b",
+          "text": "ls"
+        },
+        {
+          "id": "c",
+          "text": "pwd"
+        },
+        {
+          "id": "d",
+          "text": "cat .config"
+        }
+      ],
+      "correct_id": "a",
+      "explanation": "A opção -a inclui nomes iniciados por ponto; -l apresenta a listagem detalhada.",
+      "source": {
+        "file": "Kevin Rhoden - Exercícios.pdf",
+        "page": 2
+      }
+    },
+    {
+      "id": "arquivos-3",
+      "prompt": "Você está em /tmp e deseja voltar ao seu próprio diretório pessoal. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "cd /"
+        },
+        {
+          "id": "b",
+          "text": "cd .."
+        },
+        {
+          "id": "c",
+          "text": "ls ~"
+        },
+        {
+          "id": "d",
+          "text": "cd ~"
+        }
+      ],
+      "correct_id": "d",
+      "explanation": "No Bash, ~ representa o diretório pessoal do usuário atual. cd muda o diretório de trabalho.",
+      "source": {
+        "file": "Kevin Rhoden - Exercícios.pdf",
+        "page": 2
+      }
+    },
+    {
+      "id": "arquivos-4",
+      "prompt": "A pasta estudos ainda não existe no diretório atual. Qual sequência cria a pasta e um arquivo vazio dentro dela?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "touch estudos && mkdir estudos/aula.txt"
+        },
+        {
+          "id": "b",
+          "text": "mkdir aula.txt && cd estudos"
+        },
+        {
+          "id": "c",
+          "text": "mkdir estudos && touch estudos/aula.txt"
+        },
+        {
+          "id": "d",
+          "text": "cat estudos/aula.txt"
+        }
+      ],
+      "correct_id": "c",
+      "explanation": "mkdir cria o diretório; touch cria o arquivo quando ele ainda não existe. && executa o segundo comando se o primeiro tiver sucesso.",
+      "source": {
+        "file": "Kevin Rhoden - Exercícios.pdf",
+        "page": 1
+      }
+    },
+    {
+      "id": "arquivos-5",
+      "prompt": "O arquivo linux existe no diretório atual. Você quer copiá-lo para seu diretório pessoal, mantendo o original. Qual comando usar?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "mv linux ~"
+        },
+        {
+          "id": "b",
+          "text": "cp linux ~"
+        },
+        {
+          "id": "c",
+          "text": "rm linux"
+        },
+        {
+          "id": "d",
+          "text": "cd linux"
+        }
+      ],
+      "correct_id": "b",
+      "explanation": "cp copia o arquivo. mv moveria o original. O nome linux deve respeitar maiúsculas e minúsculas.",
+      "source": {
+        "file": "Kevin Rhoden - Exercícios.pdf",
+        "page": 1
+      }
+    },
+    {
+      "id": "arquivos-6",
+      "prompt": "Você está em /tmp, onde existe teste.txt e não existe teste1.txt. Como renomear esse arquivo?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "mv teste.txt teste1.txt"
+        },
+        {
+          "id": "b",
+          "text": "cp teste.txt teste1.txt"
+        },
+        {
+          "id": "c",
+          "text": "mkdir teste1.txt"
+        },
+        {
+          "id": "d",
+          "text": "touch teste1.txt"
+        }
+      ],
+      "correct_id": "a",
+      "explanation": "mv renomeia um arquivo quando origem e destino estão no mesmo diretório. cp deixaria duas cópias.",
+      "source": {
+        "file": "Kevin Rhoden - Exercícios.pdf",
+        "page": 2
+      }
+    },
+    {
+      "id": "arquivos-7",
+      "prompt": "A pasta rascunhos contém arquivos que podem ser descartados. Qual comando remove a pasta e seu conteúdo?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "rmdir rascunhos"
+        },
+        {
+          "id": "b",
+          "text": "rm rascunhos"
+        },
+        {
+          "id": "c",
+          "text": "cat rascunhos"
+        },
+        {
+          "id": "d",
+          "text": "rm -r rascunhos"
+        }
+      ],
+      "correct_id": "d",
+      "explanation": "rm -r remove diretórios recursivamente. rmdir exige diretório vazio; rm sem -r é usado para arquivos.",
+      "source": {
+        "file": "Kevin Rhoden - Exercícios.pdf",
+        "page": 2
+      }
+    },
+    {
+      "id": "arquivos-8",
+      "prompt": "O arquivo /var/log/syslog existe e pode ser lido. Como exibir somente suas últimas 10 linhas?",
+      "command": "",
+      "alternatives": [
+        {
+          "id": "a",
+          "text": "cat /var/log/syslog"
+        },
+        {
+          "id": "b",
+          "text": "head /var/log/syslog"
+        },
+        {
+          "id": "c",
+          "text": "tail /var/log/syslog"
+        },
+        {
+          "id": "d",
+          "text": "ls /var/log/syslog"
+        }
+      ],
+      "correct_id": "c",
+      "explanation": "tail mostra as últimas 10 linhas por padrão. cat mostraria todo o arquivo.",
+      "source": {
+        "file": "Kevin Rhoden - Exercícios.pdf",
+        "page": 2
+      }
+    }
+  ]
+}

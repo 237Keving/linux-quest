@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d0b">
+  <title>Linux Quest — Terminal Quiz</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+<body>
+  <a class="skip" href="#screen">Ir para o conteúdo</a>
+  <div class="page-shell">
+    <header class="masthead"><a href="/" aria-label="Linux Quest, início"><span class="brand-icon">&gt;_</span> LINUX QUEST<span class="version"> / v1.0</span></a><span class="connection"><i></i> AMBIENTE LOCAL</span></header>
+    <main class="terminal" aria-label="Linux Quest — Terminal Quiz">
+      <span class="crt-label crt-label-left" aria-hidden="true">CRT-80</span>
+      <span class="crt-label crt-label-right" aria-hidden="true">MEM 640K</span>
+      <div class="titlebar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span><b class="titlebar-prompt">root://</b> kevin@linux-quest: ~</span><span class="window-mark" aria-hidden="true">─ &nbsp; □</span></div>
+      <div class="terminal-path"><span>kevin@linux-quest</span>:<b>~</b>$ <span id="location">./iniciar</span><span class="cursor" aria-hidden="true">▋</span></div>
+      <div id="screen" tabindex="-1"></div>
+      <div id="notification" role="alert" hidden></div>
+      <footer class="terminal-footer"><span><i class="status-dot"></i> SISTEMA PRONTO</span><span class="terminal-clock" aria-hidden="true">CH 01 · 60 Hz</span><span>SEM TEMPO LIMITE <span class="footer-extra">· APRENDA PRATICANDO</span></span></footer>
+    </main>
+    <footer class="page-footer"><span>Kevin Rhoden <span class="muted">/ TI23</span></span><span>Sistemas Operacionais Linux <span class="muted">· Prof. Cristiano Forte</span></span></footer>
+  </div>
+  <dialog id="exit-dialog"><h2>Encerrar esta missão?</h2><p>O progresso desta partida será descartado.</p><div class="actions"><button id="keep-playing" class="primary">[ CONTINUAR JOGANDO ]</button><button id="confirm-exit">[ SAIR DA PARTIDA ]</button></div></dialog>
+  <noscript>Ative o JavaScript para jogar o Linux Quest.</noscript>
+</body>
+</html>
